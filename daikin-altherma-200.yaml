@@ -1,6 +1,6 @@
 esphome:
-  name: daikin-altherma-200
-  friendly_name: daikin-altherma-200
+  name: daikin-altherma
+  friendly_name: daikin-altherma
   
 esp32:
   board: esp32-c3-devkitm-1
@@ -15,15 +15,11 @@ logger:
 api:
 
 ota:
-  - platform: esphome
+  platform: esphome
 
 wifi:
   networks:
   - ssid: !secret wifi_ssid
-    password: !secret wifi_password
-  - ssid: !secret wifi2_ssid
-    password: !secret wifi_password
-  - ssid: !secret wifi3_ssid
     password: !secret wifi_password
 
   power_save_mode: none
@@ -31,7 +27,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Daikin-Altherma-200"
+    ssid: "Daikin-Altherma"
     password: "XQq82CoHtaXD"
 
 captive_portal:
@@ -43,7 +39,7 @@ web_server:
 external_components:
   - source:
       type: git
-      url: https://github.com/jcappaert/esphome-daikin-ekhhe
+      url: https://github.com/tryguntm/esphome-daikin-ekhhe
       ref: main
     components: [ daikin_ekhhe ]
 
@@ -153,7 +149,7 @@ number:
     auto_mode_min_eev_step:
       name: "P38: Auto mode min EEV step"
     eev_step_opening_initial:
-      name: "P40: Inivital EEV opening step"
+      name: "P40: Initial EEV opening step"
     eev_kp1_gain_akp1_temp_threshold:
       name: "P41: EEV KP1 AKP1 temp threshold"
     eev_kp2_gain_akp2_temp_threshold:
